@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pikachu</title>
+		<meta charset="UTF-8">
+
+		<style>
+			/* This is a CSS comment */
+			h1 {
+				color: blue;
+				font-size: 60px;
+			}
+			h2 {
+				color: green;
+				font-size: 44px;
+			}
+			img {
+				/* Only adjust width OR height in images or else the ratio will be off and image will get distorted*/
+				width: 300px;
+				/*height: 400px;*/
+			}
+			/* Selects a CLASS */
+			.blue-text {
+				color: #6B68FF;
+			}
+			/* Selects an ID. */
+			#main-image {
+				width: 200px;
+				float: right;
+			}
+			#header {
+				background-color: yellow;
+				text-align: center;
+			}
+			#header h1 {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			#biology {
+				background-color: pink;
+				width: 600px;
+				/* creates spacing INSIDE the div */
+				padding-left: 10px;
+				padding-right: 20px; 
+				padding-bottom: 20px;
+
+				/* creates spacing OUTSIDE the div */
+				/*margin-left: 100px;*/
+
+				/* Centers entire div */
+				/*text-align centers content INSIDE the div */
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+		</style>
+	</head>
+
+	<body> 
+		<!-- This is an HTML comment -->
+
+		<!-- Everything in the <body> tag is what is displayed on the browser -->
+
+		<!-- HTML ignores whitespace. Doesn't care about line breaks or indentation. -->
+
+		<!-- Div creates sections -->
+		<div id="header">
+			<!-- <h1> is short for heading 1 tag. It formats text to be bold, larger, and adds some whitespace. This is a great tag to use for page titles. -->
+			<h1>All About Pikachu</h1>
+		</div>
+
+		<div id="biology">
+
+			<!-- img tag does not have a closing tag -->
+			<!-- Two ways to define the source of the image -->
+			<!-- 1. Absolute path: advantage is it's super easy. disadvantage: if owner of image takes it down, the image disappears from my website -->
+			<img src="https://assets.teenvogue.com/photos/5b4e34b4942af253ca1a7a54/master/pass/16-pikachu-with-bangs.nocrop.w710.h2147483647.jpg" alt="Pikachu with bangs" />
+
+			
+
+			<h2>Biology</h2>
+
+
+			<!-- 2. Relative path -->
+			<img id="main-image" src="images/pikachu.png" alt="Dancing pikachu"/>
+
+			<p class="blue-text">Pikachu is a short, chubby rodent <strong>Pokémon</strong>. It is covered in <em>yellow</em> fur with two horizontal brown stripes on its back. It has a small mouth, long, pointed ears with black tips, brown eyes, and the two red circles on its cheeks contain pouches for electricity storage. It has short forearms with five fingers on each paw, and its feet each have three toes. At the base of its lightning bolt-shaped tail is a patch of brown fur. A female will have a V-shaped notch at the end of its tail, which looks like the top of a heart. It is classified as quadruped, but it has been known to stand and walk on its hind legs.</p>
+
+			<p>The anime has shown that wild Pikachu live in groups in forested areas. Pikachu communicates amongst themselves using squeaks and tail-shaking as friendly gestures. Electricity can be used to receive and send messages with each other, as well as other Electric Pokémon species. It raises its tail to check its surroundings and is occasionally struck by lightning in this position. When groups grow, they can inadvertently cause lightning storms. Pikachu is found foraging for berries it roasts with electricity to make them tender enough to eat. A sure sign that Pikachu inhabits a location is patches of burnt grass. It has been observed eating and sometimes destroying telephone poles, wires, and other electronic equipment.</p>
+
+		</div>
+
+		<h2>Facts</h2>
+		<ul>
+			<li>evolves into Raichu</li>
+			<li>is electric type</li>
+			<li>favorite food is ketchup</li>
+		</ul>
+
+		<!-- href is an attribute of <a> tag. it defines the URL that this link will open -->
+		<a href="https://www.google.com" target="_blank">Click this link</a> to read more about Pikachu!
+
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
