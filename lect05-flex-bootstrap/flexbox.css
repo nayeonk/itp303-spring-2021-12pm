@@ -1,0 +1,74 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Oswald', sans-serif;
+}
+/* the * selects ALL HTML elements in the page */
+* {
+	box-sizing: border-box;
+}
+
+/* Colors for each box. */
+.box1 { background-color: #011627; }
+.box2 { background-color: #EB5160; }
+.box3 { background-color: #030301; }
+.box4 { background-color: #00D9C0; }
+.box5 { background-color: #FF0022; }
+
+/* The parent */
+.container {
+  border: 10px solid skyblue;
+  display: flex;
+
+  height: 500px;
+
+  /* flex-direction defines the MAIN axis */
+  flex-direction: row;
+
+  /* default is nowrap: makes all child elements stay in one row
+	wrap: makes width a fixed size, any element that cant fit in a row will get moved down to next row
+  */
+  /*flex-wrap: wrap;*/
+  flex-wrap: nowrap;
+
+  /* justify-content defines alignment along the MAIN axis (default is left to right) */
+  justify-content: space-between;
+
+  /* align-items defines alignment along the CROSS axis. It is the opposite of justify-content */
+  align-items: baseline;
+}
+
+/* .container's direct children */
+.box {
+	color: white;
+ 	font-size: 28px;
+ 	width: 100px;
+ 	/*width: 20%;*/
+}
+.box2 {
+	/* By defeault, all child flex items have an order of 0
+		whoever has the highest order value, gets sent to the end
+	 */
+	order: 1;
+}
+.box4 {
+	order: 9999999999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
