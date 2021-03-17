@@ -78,6 +78,16 @@ FROM tracks
 WHERE album_id IS NOT NULL
 GROUP BY album_id;
 
+-- For each artist, show the number of their albums
+SELECT artist_id, COUNT(*)
+FROM albums
+GROUP BY artist_id;
 
+-- Same as above, but also show the artist name
+SELECT albums.artist_id, artists.name, COUNT(*)
+FROM albums
+JOIN artists
+	ON albums.artist_id = artists.artist_id
+GROUP BY albums.artist_id;
 
 
