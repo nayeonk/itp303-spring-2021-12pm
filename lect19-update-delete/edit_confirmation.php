@@ -45,12 +45,6 @@
 		// 	exit();
 		// }
 
-		// Check that one record was affected
-		// affected_rows returns how many records were changed. This should be ONE
-		if($mysqli->affected_rows == 1) {
-			$isUpdated = true;
-		}
-
 		// ---- Using prepared statements
 		$statement = $mysqli->prepare("UPDATE tracks SET name = ?, genre_id = ?, composer = ? WHERE track_id = ?");
 
@@ -67,6 +61,12 @@
 		}
 		// close the statement when finished
 		$statement->close();
+
+		// Check that one record was affected
+		// affected_rows returns how many records were changed. This should be ONE (works for prepared statements too)
+		if($mysqli->affected_rows == 1) {
+			$isUpdated = true;
+		}
 
 
 		$mysqli->close();
