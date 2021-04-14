@@ -65,6 +65,7 @@
 		</form>
 	</div> <!-- .container -->
 	<script>
+		// client-side validation ()
 		document.querySelector('form').onsubmit = function(){
 			if ( document.querySelector('#username-id').value.trim().length == 0 ) {
 				document.querySelector('#username-id').classList.add('is-invalid');
