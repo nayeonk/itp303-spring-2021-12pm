@@ -1,3 +1,7 @@
+<?php
+	session_start(); //allows sessions on this page
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

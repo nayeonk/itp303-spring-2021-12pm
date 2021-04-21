@@ -1,7 +1,16 @@
 <?php
+//session_start(); // starts the session for this page
+
 require '../config/config.php';
 
+// If user is logged in, don't show them this page. Redirect them to somewhere else
+// if not logged in, do the usual things
+if( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"] ) {
+
+	// Check if a username and password has been submitted via POST method. Will not go into if statement if user simply got to the login page. Only if username and password was actually submitted.
 	if ( isset($_POST['username']) && isset($_POST['password']) ) {
+
+		// Check if username and password has been filled out or not
 		if ( empty($_POST['username']) || empty($_POST['password']) ) {
 
 			$error = "Please enter username and password.";
@@ -9,6 +18,7 @@ require '../config/config.php';
 		}
 		else {
 
+			// This means user has filled out something for username and password. So let's check if this username/password combo exists in the DB and that it is correct!
 			$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 			if($mysqli->connect_errno) {
@@ -16,7 +26,10 @@ require '../config/config.php';
 				exit();
 			}
 
-			$passwordInput = "";
+			// Generate SQL statement to check if username and password combo exists 
+
+			// hash whatever user typed in for the password field and then compare that with the hashed pw in the db
+			$passwordInput = hash("sha256", $_POST["password"]);
 
 			$sql = "SELECT * FROM users
 						WHERE username = '" . $_POST['username'] . "' AND password = '" . $passwordInput . "';";
@@ -29,16 +42,26 @@ require '../config/config.php';
 				echo $mysqli->error;
 				exit();
 			}
-
+			// if we get one match, that means this username/pw combo exists! num_rows tells us how many results we obtained from the above sql query
 			if($results->num_rows > 0) {
-				
-			
+				// log in success!
+				// set session variables to remember the username
+				$_SESSION["username"] = $_POST["username"];
+				$_SESSION["logged_in"] = true;
+
+				// Redirect logged in user to the home page (using relative path)
+				header("Location: ../song-db/index.php");
 			}
 			else {
 				$error = "Invalid username or password.";
 			}
 		} 
 	}
+}
+else {
+	// user is already logged in, so redirect them to another page
+	header("Location: ../song-db/index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +80,7 @@ require '../config/config.php';
 	</div> <!-- .container -->
 
 	<div class="container">
-
+		<!-- We are submitting this form to itself -->
 		<form action="login.php" method="POST">
 
 			<div class="row mb-3">

@@ -1,4 +1,7 @@
 <?php
+	session_start(); // have to start a session to destory it
+	session_destroy(); // clears all existing sessions (all of our login info)
+
 ?>
 <!DOCTYPE html>
 <html>
